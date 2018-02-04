@@ -72,6 +72,12 @@ public class GameController : MonoBehaviour {
 				count = count + 5;
 				GetComponent<AudioSource>().Play();
 			}
+			else if (other.gameObject.CompareTag ("Level Win Pick Up"))
+			{
+				count = count + 10;
+				winText.text = "You Win!";
+				timeExpired = true;
+			}
 			other.gameObject.SetActive (false);
 			SetCountText ();
 		}

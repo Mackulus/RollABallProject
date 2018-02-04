@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pick Up
   - Bonus Pick Up
+  - Level Win Pick Up
   layers:
   - Default
   - TransparentFX
