@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4191230827713666}
   - component: {fileID: 135569766741916516}
   - component: {fileID: 114307835884591766}
+  - component: {fileID: 114877848988983844}
   m_Layer: 0
   m_Name: Level Win Pick Up
   m_TagString: Level Win Pick Up
@@ -196,6 +197,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f7fdf1d633b45d6a82d61365c20acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114877848988983844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1078365082108056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aabaf1021f51ef42806420e8b1d0d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: 
 --- !u!135 &135569766741916516
 SphereCollider:
   m_ObjectHideFlags: 1
