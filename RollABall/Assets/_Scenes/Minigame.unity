@@ -205,7 +205,6 @@ GameObject:
   - component: {fileID: 46298333}
   - component: {fileID: 46298332}
   - component: {fileID: 46298336}
-  - component: {fileID: 46298337}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -288,21 +287,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focus: {fileID: 1090313197}
---- !u!114 &46298337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 46298331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e488479d9000144408a0a013919c0f34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countText: {fileID: 0}
-  winText: {fileID: 0}
-  timeText: {fileID: 0}
-  maxTimeAllowed: 30
 --- !u!1001 &125714338
 Prefab:
   m_ObjectHideFlags: 0
