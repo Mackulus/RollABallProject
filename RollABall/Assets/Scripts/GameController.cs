@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour {
 	public Text countText;
 	public Text winText;
 	public Text timeText;
-	public PlayerController player;
+	//public PlayerController player;
 
 	private int count;
 	private float timeLeft;
