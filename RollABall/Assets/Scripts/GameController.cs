@@ -11,18 +11,20 @@ public class GameController : MonoBehaviour {
 	public Text timeText;
 	//public PlayerController player;
 
-	private int count;
+	private static int count = 0;
+	private static int level = 1;
 	private float timeLeft;
 	private bool timeExpired;
+	private bool win;
 
 	void Start()
 	{
-		count = 0;
 		timeLeft = 30.0f;
 		timeExpired = false;
 		SetCountText ();
 		SetTimeText ();
 		winText.text = "";
+		win = false;
 	}
 
 	void Update()
@@ -34,18 +36,34 @@ public class GameController : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.N))
 		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			SceneManager.LoadScene("Menu");
+		}
+
+		if (win)
+		{
+			StartCoroutine(WinLevelOrBackToMainMenu());
+		}
+	}
+
+	IEnumerator WinLevelOrBackToMainMenu()
+	{
+		yield return new WaitForSecondsRealtime(5);
+		level++;
+		if (level < 5)
+		{
+			SceneManager.LoadScene("Level" + level);
+		}
+		else
+		{
+			count = 0;
+			level = 1;
+			SceneManager.LoadScene("Menu");
 		}
 	}
 
 	void SetCountText ()
 	{
 		countText.text = "Count: " + count.ToString ();
-		//if (count >= 16) 
-		//{
-		//	winText.text = "You Win!";
-		//	timeExpired = true;
-		//}
 	}
 
 	void SetTimeText ()
@@ -76,6 +94,7 @@ public class GameController : MonoBehaviour {
 			{
 				count = count + 10;
 				winText.text = "You Win!";
+				win = true;
 				timeExpired = true;
 			}
 			other.gameObject.SetActive (false);
