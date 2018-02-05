@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour {
 			SceneManager.LoadScene("Menu");
 		}
 
-		if (win)
+		if (timeExpired)
 		{
 			StartCoroutine(WinLevelOrBackToMainMenu());
 		}
@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour {
 	{
 		yield return new WaitForSecondsRealtime(5);
 		level++;
-		if (level < 5)
+		if (level < 5 && win)
 		{
 			SceneManager.LoadScene("Level" + level);
 		}
