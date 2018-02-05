@@ -7,6 +7,7 @@ TagManager:
   - Pick Up
   - Bonus Pick Up
   - Level Win Pick Up
+  - Box Lid
   layers:
   - Default
   - TransparentFX

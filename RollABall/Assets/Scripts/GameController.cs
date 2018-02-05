@@ -83,17 +83,20 @@ public class GameController : MonoBehaviour {
 		{
 			if (other.gameObject.CompareTag ("Pick Up")) 
 			{
+				//audio component array code found here https://answers.unity.com/questions/52017/2-audio-sources-on-a-game-object-how-use-script-to.html
 				count = count + 1;
+				GetComponents<AudioSource>()[0].Play();
 			}
 			else if (other.gameObject.CompareTag ("Bonus Pick Up"))
 			{
 				count = count + 5;
-				GetComponent<AudioSource>().Play();
+				GetComponents<AudioSource>()[1].Play();
 			}
 			else if (other.gameObject.CompareTag ("Level Win Pick Up"))
 			{
 				count = count + 10;
 				winText.text = "You Win!";
+				//GetComponents<AudioSource>()[2].Play();
 				win = true;
 				timeExpired = true;
 			}
