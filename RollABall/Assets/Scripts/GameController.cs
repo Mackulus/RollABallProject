@@ -36,6 +36,8 @@ public class GameController : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.N))
 		{
+			count = 0;
+			level = 1;
 			SceneManager.LoadScene("Menu");
 		}
 
