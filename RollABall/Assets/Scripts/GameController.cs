@@ -5,21 +5,21 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
-
 	public Text countText;
 	public Text winText;
 	public Text timeText;
 	//public PlayerController player;
-
+	
 	private static int count = 0;
 	private static int level = 1;
+	private float timeMax = 30.0f;
 	private float timeLeft;
 	private bool timeExpired;
 	private bool win;
 
 	void Start()
 	{
-		timeLeft = 30.0f;
+		timeLeft = timeMax;
 		timeExpired = false;
 		SetCountText ();
 		SetTimeText ();
@@ -36,6 +36,9 @@ public class GameController : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.N))
 		{
+			HighScoreRecorder.Record(count, timeMax - timeLeft);
+			//HighScoreRecorder.curScore.score += count;
+			//HighScoreRecorder.curScore.time += timeMax - timeLeft;
 			count = 0;
 			level = 1;
 			SceneManager.LoadScene("Menu");
@@ -53,10 +56,12 @@ public class GameController : MonoBehaviour {
 		level++;
 		if (level < 5 && win)
 		{
+			HighScoreRecorder.Record(count, timeMax - timeLeft);
 			SceneManager.LoadScene("Level" + level);
 		}
 		else
 		{
+			HighScoreRecorder.Record(count, timeMax - timeLeft);
 			count = 0;
 			level = 1;
 			SceneManager.LoadScene("Menu");

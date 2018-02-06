@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HighScoreRecorder : MonoBehaviour {
-	public HighScoreController highScoreController;
-	static int Score;
-	static float Time;
+	//public HighScoreController highScoreController;
+
+	public static ScoreData curScore = new ScoreData();
 
 	// Use this for initialization
 	void Start () {
@@ -17,12 +17,12 @@ public class HighScoreRecorder : MonoBehaviour {
 		
 	}
 
-	public static void Finish() {
-
-	}
-
-	public static bool Record(int score, float time) {
-
-		return true;
+	public static void Record(int score, float time) {
+		Debug.Log("Recorded: " + score + " and " + time);
+		if (score > 0 && time > 0) {
+			curScore.score += (int)score;
+			curScore.time += (float)time;
+		}
+		Debug.Log("New values: " + curScore.score + " and " + curScore.time);
 	}
 }
