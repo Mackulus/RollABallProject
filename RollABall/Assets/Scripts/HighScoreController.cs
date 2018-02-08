@@ -17,7 +17,14 @@ public class ScoreData {
 	}
 
 	public static bool IsEmpty(ScoreData scoreData) {
-		return scoreData.name.Length == 0 && scoreData.time <= 0f && scoreData.score <= 0;
+		if (scoreData != null) {
+			return scoreData.name.Length == 0 && scoreData.time <= 0f && scoreData.score <= 0;
+		}
+		else return false;
+	}
+
+	public override string ToString() {
+		return name + ": " + score.ToString() + " : " + time.ToString();
 	}
 
 	public string name;
@@ -26,65 +33,68 @@ public class ScoreData {
 }
 
 public class HighScoreController : MonoBehaviour {
-	public GameObject[] Data = new GameObject[10];
-	public Text curPlayerName;
-
-	private ScoreData[] HighScoreArr = new ScoreData[10];
-	//private ScoreData[] LowTimeArr = new ScoreData[10];
-
-	void Awake() {
-		if (!ScoreData.IsEmpty(HighScoreRecorder.curScore)) {
-			Debug.Log("Detected a Score!");
-			Debug.Log("Reported values: " + HighScoreRecorder.curScore.score + " and " + HighScoreRecorder.curScore.time);
-			NewScore(HighScoreRecorder.curScore);
-		}
-		else {
-			Debug.Log("No Detected Score. :(");
-		}
-	}
+	private static ScoreData[] HighScores = new ScoreData[10];
 
 	void Start () {
-		PrintHighScoreList(HighScoreArr);
+		GetHighScoreList();
+
+		if (!ScoreData.IsEmpty(PlayerController.playerScore)) {
+			//Debug.Log("Detected a Score!");
+			//Debug.Log("Reported values: " + HighScoreRecorder.curScore.score + " and " + HighScoreRecorder.curScore.time);
+			NewScore(PlayerController.playerScore);
+		}
 	}
 	
-	void GameStart() {
-		HighScoreRecorder.curScore = new ScoreData(curPlayerName.text, 0, 0f);
-	}
-
+	//Probably Works
 	bool NewScore(ScoreData highScore) {
-		Debug.Log("New Score Detected");
-		Debug.Log("Length of Array: " + HighScoreArr.Length);
-		int ix;
-		for (ix = 0; ix < HighScoreArr.Length; ix++) {
-			Debug.Log("Position: " + ix);
-			if (highScore.score > HighScoreArr[ix].score || (highScore.score == HighScoreArr[ix].score && highScore.time < HighScoreArr[ix].time)) {
-				Debug.Log("Spot found at " + ix);
-				ScoreData[] tempArr = new ScoreData[10];
-				tempArr[ix] = highScore;
-				for (int iy = 0; iy < tempArr.Length && iy + 1 < HighScoreArr.Length; iy++) {
-					if (iy > ix) {
-						tempArr[iy] = HighScoreArr[iy + 1];
-					}
-					else if(iy < ix){
-						tempArr[iy] = HighScoreArr[iy];
-					}
-				}
+		//Debug.Log("New Score Detected");
+		//Debug.Log("Length of Array: " + HighScores.Length);
+		// Loops thru HighScores 0 to 10
+		for (int ix = 0; ix < HighScores.Length; ix++) {
+			//Debug.Log("Position: " + ix);
+			// if the Score at this position is empty place the score here
+			if (ScoreData.IsEmpty(HighScores[ix])) {
+				Debug.Log("Empty Spot found at " + ix);
+				HighScores[ix] = highScore;
+				SetHighScoreList();
+				Debug.Log(HighScores.ToString());
 				return true;
 			}
-		}
-		if (ix < HighScoreArr.Length && ScoreData.IsEmpty(HighScoreArr[ix])) {
-			HighScoreArr[ix] = highScore;
+			// else if the curScore has a greater score or the same score and a better time
+			else if (highScore.score > HighScores[ix].score || (highScore.score == HighScores[ix].score && highScore.time < HighScores[ix].time)) {
+				//Debug.Log("Spot found at " + ix);
+				//move everything over one
+				for (int iy = HighScores.Length - 1; iy > ix; iy--) {
+					HighScores[iy] = HighScores[iy - 1];
+				}
+				HighScores[ix] = highScore;
+				SetHighScoreList();
+				Debug.Log(HighScores.ToString());
+				return true;
+			}
 		}
 		return false;
 	}
 
-	void GetHighScoreLists() {
-
+	public static void GetHighScoreList() {
+		for (int ix = 0; ix < 10 && PlayerPrefs.HasKey("HighScore" + ix + "n"); ix++) {
+			HighScores[ix].name = PlayerPrefs.GetString("HighScore" + ix + "n");
+			HighScores[ix].score = PlayerPrefs.GetInt("HighScore" + ix + "s");
+			HighScores[ix].time = PlayerPrefs.GetFloat("HighScore" + ix + "t");
+		}
 	}
 
+	public static void SetHighScoreList() {
+		for (int ix = 0; ix < 10 && (!ScoreData.IsEmpty(HighScores[ix])); ix++) {
+			PlayerPrefs.SetString("HighScore" + ix + "n", HighScores[ix].name);
+			PlayerPrefs.GetInt("HighScore" + ix + "s", HighScores[ix].score);
+			PlayerPrefs.GetFloat("HighScore" + ix + "t", HighScores[ix].time);
+		}
+	}
+
+	/*Definitely Doesn't Work
 	void PrintHighScoreList(ScoreData[] hsArr) {
 		Debug.Log("Begin printing High Scores");
-		Debug.Log("Length of Array: " + HighScoreArr.Length);
 		for (int ix = 0; ix < Data.Length && ix < hsArr.Length && (!ScoreData.IsEmpty(hsArr[ix])); ix++) {
 			Text[] textArr = Data[ix].GetComponents<Text>();
 			foreach (Text t in textArr) {
@@ -99,5 +109,5 @@ public class HighScoreController : MonoBehaviour {
 				}
 			}
 		}
-	}
+	}*/
 }

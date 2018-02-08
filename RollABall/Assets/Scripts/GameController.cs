@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.N))
 		{
-			HighScoreRecorder.Record(count, timeMax - timeLeft);
+			PlayerController.Record(count, timeMax - timeLeft);
 			//HighScoreRecorder.curScore.score += count;
 			//HighScoreRecorder.curScore.time += timeMax - timeLeft;
 			count = 0;
@@ -56,12 +56,12 @@ public class GameController : MonoBehaviour {
 		level++;
 		if (level < 5 && win)
 		{
-			HighScoreRecorder.Record(count, timeMax - timeLeft);
+			PlayerController.Record(count, timeMax - timeLeft);
 			SceneManager.LoadScene("Level" + level);
 		}
 		else
 		{
-			HighScoreRecorder.Record(count, timeMax - timeLeft);
+			PlayerController.Record(count, timeMax - timeLeft);
 			count = 0;
 			level = 1;
 			SceneManager.LoadScene("Menu");

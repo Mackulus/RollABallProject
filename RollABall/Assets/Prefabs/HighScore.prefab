@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224864871196439020}
   - component: {fileID: 222561708395684046}
+  - component: {fileID: 114014955038695948}
   m_Layer: 5
   m_Name: HighScore
   m_TagString: Untagged
@@ -78,6 +79,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114014955038695948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1153652975698446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a18388df2a5ccf479028b23287c3232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPref: 
+  playerName: {fileID: 114901448544548712}
+  score: {fileID: 114988325200047740}
+  time: {fileID: 114107617333230268}
 --- !u!114 &114107617333230268
 MonoBehaviour:
   m_ObjectHideFlags: 1
