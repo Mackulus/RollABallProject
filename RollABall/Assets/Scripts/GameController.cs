@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.N))
 		{
-			HighScoreController.NewScore(new ScoreData(playerName, playerCount, playerTime));
+			HighScoreController.NewScore(playerName, playerCount, playerTime);
 			playerTime = 0f;
 			playerCount = 0;
 			level = 1;
@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour {
 		}
 		else
 		{
-			HighScoreController.NewScore(new ScoreData(playerName, playerCount, playerTime));
+			HighScoreController.NewScore(playerName, playerCount, playerTime);
 			level = 1;
 			playerTime += timeMax - timeLeft;
 			playerCount = 0;
