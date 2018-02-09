@@ -7,9 +7,9 @@ public class NameUpdate : MonoBehaviour {
 	private string cachedInput = "";
 
 	void Update () {
-		if (cachedInput != PlayerController.playerScore.name) {
-			PlayerController.playerScore.name = Input.text;
-			cachedInput = PlayerController.playerScore.name;
+		if (cachedInput != GameController.playerName) {
+			GameController.playerName = Input.text;
+			cachedInput = GameController.playerName;
 		}
 	}
 }

@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-	public static ScoreData playerScore = new ScoreData();
-
 	public float speed;
 	public GameController game;
 
 	private Rigidbody rb;
-
 
 	void Start ()
 	{
@@ -28,14 +25,5 @@ public class PlayerController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		game.AddPoints(other);
-	}
-
-	public static void Record(int score, float time) {
-		//Debug.Log("Recorded: " + score + " and " + time);
-		if (score > 0 && time > 0) {
-			playerScore.score += (int)score;
-			playerScore.time += (float)time;
-		}
-		//Debug.Log("New values: " + curScore.score + " and " + curScore.time);
 	}
 }

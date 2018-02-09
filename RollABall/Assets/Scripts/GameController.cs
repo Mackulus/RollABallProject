@@ -9,8 +9,12 @@ public class GameController : MonoBehaviour {
 	public Text winText;
 	public Text timeText;
 	//public PlayerController player;
-	
-	private static int count = 0;
+
+	public static string playerName = "";
+	public static int playerCount = 0;
+	public static float playerTime = 0.0f;
+
+	//private static int count = 0;
 	private static int level = 1;
 	private float timeMax = 30.0f;
 	private float timeLeft;
@@ -36,10 +40,9 @@ public class GameController : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.N))
 		{
-			PlayerController.Record(count, timeMax - timeLeft);
-			//HighScoreRecorder.curScore.score += count;
-			//HighScoreRecorder.curScore.time += timeMax - timeLeft;
-			count = 0;
+			HighScoreController.NewScore(new ScoreData(playerName, playerCount, playerTime));
+			playerTime = 0f;
+			playerCount = 0;
 			level = 1;
 			SceneManager.LoadScene("Menu");
 		}
@@ -56,21 +59,23 @@ public class GameController : MonoBehaviour {
 		level++;
 		if (level < 5 && win)
 		{
-			PlayerController.Record(count, timeMax - timeLeft);
+			playerTime += timeMax - timeLeft;
 			SceneManager.LoadScene("Level" + level);
 		}
 		else
 		{
-			PlayerController.Record(count, timeMax - timeLeft);
-			count = 0;
+			HighScoreController.NewScore(new ScoreData(playerName, playerCount, playerTime));
 			level = 1;
+			playerTime += timeMax - timeLeft;
+			playerCount = 0;
 			SceneManager.LoadScene("Menu");
 		}
+		StopCoroutine(WinLevelOrBackToMainMenu());
 	}
 
 	void SetCountText ()
 	{
-		countText.text = "Count: " + count.ToString ();
+		countText.text = "Count: " + playerCount.ToString ();
 	}
 
 	void SetTimeText ()
@@ -91,17 +96,17 @@ public class GameController : MonoBehaviour {
 			if (other.gameObject.CompareTag ("Pick Up")) 
 			{
 				//audio component array code found here https://answers.unity.com/questions/52017/2-audio-sources-on-a-game-object-how-use-script-to.html
-				count = count + 1;
+				playerCount += 1;
 				GetComponents<AudioSource>()[0].Play();
 			}
 			else if (other.gameObject.CompareTag ("Bonus Pick Up"))
 			{
-				count = count + 5;
+				playerCount += 5;
 				GetComponents<AudioSource>()[1].Play();
 			}
 			else if (other.gameObject.CompareTag ("Level Win Pick Up"))
 			{
-				count = count + 10;
+				playerCount += 10;
 				winText.text = "You Win!";
 				//GetComponents<AudioSource>()[2].Play();
 				win = true;
