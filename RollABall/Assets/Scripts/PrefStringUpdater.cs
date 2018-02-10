@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class PrefUpdater : MonoBehaviour {
+public class PrefStringUpdater : MonoBehaviour {
 	private Text textBox;
 
     public string playerPref;
@@ -12,7 +10,7 @@ public class PrefUpdater : MonoBehaviour {
         textBox = GetComponent<Text>();
     }
 
-    void OnEnable() {
+    void LateUpdate() {
         if (playerPref != "" && PlayerPrefs.HasKey(playerPref)) {
             textBox.text = PlayerPrefs.GetString(playerPref);
         }

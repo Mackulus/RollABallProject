@@ -13,7 +13,11 @@ public class HighScoreController : MonoBehaviour {
     }
 	
 	public static void NewScore(string name, int score) {
-		for (int ix = 0; ix < HighScores.Count; ix++) {
+		for (int ix = 0; ix < HighScores.Capacity; ix++) {
+			if (ix >= HighScores.Count) {
+				HighScoreNames.Add(name);
+				HighScores.Add(score);
+			}
 			if (score > HighScores[ix]) {
 				HighScoreNames.Insert(ix, name);
 				HighScores.Insert(ix, score);
@@ -29,14 +33,13 @@ public class HighScoreController : MonoBehaviour {
 
 	public static void GetHighScoreList() {
 		for (int ix = 0; ix < HighScores.Capacity && PlayerPrefs.HasKey("HighScoreName" + ix); ix++) {
-			HighScoreNames[ix] = PlayerPrefs.GetString("HighScoreName" + ix);
-			HighScores[ix] = PlayerPrefs.GetInt("HighScore" + ix);
+			HighScoreNames[ix] = PlayerPrefs.GetString("HighScoreName" + ix, "");
+			HighScores[ix] = PlayerPrefs.GetInt("HighScore" + ix, 0);
 		}
 	}
 
 	public static void SetHighScoreList() {
 		for (int ix = 0; ix < HighScores.Count; ix++) {
-            Debug.Log(HighScores[ix].ToString());
 			PlayerPrefs.SetString("HighScore" + ix, HighScoreNames[ix]);
 			PlayerPrefs.SetInt("HighScore" + ix, HighScores[ix]);
 		}

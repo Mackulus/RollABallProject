@@ -2,14 +2,13 @@
 using UnityEngine.UI;
 
 public class NameUpdate : MonoBehaviour {
-	public Text Input;
+	private static Text Input;
 
-	private string cachedInput = "";
+    private void Start() {
+        Input = GetComponent<Text>();
+    }
 
-	void Update () {
-		if (cachedInput != GameController.playerName) {
-			GameController.playerName = Input.text;
-			cachedInput = GameController.playerName;
-		}
+    public void PassName () {
+		GameController.playerName = Input.text;
 	}
 }
