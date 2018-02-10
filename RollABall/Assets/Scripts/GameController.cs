@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour {
 	public Text timeText;
 	//public PlayerController player;
 
+	//playerName is never being set
 	public static string playerName = "";
 	public static int playerCount = 0;
 	public static float playerTime = 0.0f;
@@ -26,7 +27,6 @@ public class GameController : MonoBehaviour {
 	{
 		timeLeft = timeMax;
 		timeExpired = false;
-		Debug.Log("starting timeExpired: " + timeExpired);
 		SetCountText ();
 		SetTimeText ();
 		winText.text = "";
@@ -52,7 +52,6 @@ public class GameController : MonoBehaviour {
 
 		if (timeExpired && !startedCoRoutine)
 		{
-			Debug.Log("Calling Win Level");
 			StartCoroutine(WinLevelOrBackToMainMenu());
 		}
 	}
@@ -68,7 +67,6 @@ public class GameController : MonoBehaviour {
 		{
 			playerTime += timeMax - timeLeft;
 			SceneManager.LoadScene("Level" + level);
-			StopCoroutine(WinLevelOrBackToMainMenu());
 		}
 		else
 		{

@@ -11,6 +11,7 @@ public class HighScoreUpdater : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake() {
+		//The playerPref value is not set inside of HighScoreController. The keys below it (playerPref + n, etc.) are, but never just the playerPref that is here)
 		if (PlayerPrefs.HasKey(playerPref)) {
 			playerName.text = PlayerPrefs.GetString(playerPref + "n");
 			score.text = PlayerPrefs.GetInt(playerPref + "s").ToString();
