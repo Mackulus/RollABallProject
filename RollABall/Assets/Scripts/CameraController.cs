@@ -12,9 +12,15 @@ public class CameraController : MonoBehaviour {
 	void Start () {
 		offset = transform.position - focus.transform.position;
 	}
-	
-	// Update is called once per frame
-	void LateUpdate () {
+
+    // Update is called once per frame
+    void Update() {
+        if (Input.GetKey("escape")) {
+            Application.Quit();
+        }
+    }
+
+    void LateUpdate () {
 		transform.position = focus.transform.position + offset;
 	}
 }
