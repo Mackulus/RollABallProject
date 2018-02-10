@@ -20,15 +20,18 @@ public class GameController : MonoBehaviour {
 	private float timeLeft;
 	private bool timeExpired;
 	private bool win;
+	private bool startedCoRoutine;
 
 	void Start()
 	{
 		timeLeft = timeMax;
 		timeExpired = false;
+		Debug.Log("starting timeExpired: " + timeExpired);
 		SetCountText ();
 		SetTimeText ();
 		winText.text = "";
 		win = false;
+		startedCoRoutine = false;
 	}
 
 	void Update()
@@ -47,20 +50,25 @@ public class GameController : MonoBehaviour {
 			SceneManager.LoadScene("Menu");
 		}
 
-		if (timeExpired)
+		if (timeExpired && !startedCoRoutine)
 		{
+			Debug.Log("Calling Win Level");
 			StartCoroutine(WinLevelOrBackToMainMenu());
 		}
 	}
 
 	IEnumerator WinLevelOrBackToMainMenu()
 	{
+		startedCoRoutine = true;
 		yield return new WaitForSecondsRealtime(5);
 		level++;
+		Debug.Log(level);
+		Debug.Log(timeExpired);
 		if (level < 5 && win)
 		{
 			playerTime += timeMax - timeLeft;
 			SceneManager.LoadScene("Level" + level);
+			StopCoroutine(WinLevelOrBackToMainMenu());
 		}
 		else
 		{
@@ -69,6 +77,7 @@ public class GameController : MonoBehaviour {
 			playerTime += timeMax - timeLeft;
 			playerCount = 0;
 			SceneManager.LoadScene("Menu");
+			StopCoroutine(WinLevelOrBackToMainMenu());
 		}
 		StopCoroutine(WinLevelOrBackToMainMenu());
 	}
