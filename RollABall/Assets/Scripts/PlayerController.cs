@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-
 	public float speed;
 	public GameController game;
 
 	private Rigidbody rb;
-
 
 	void Start ()
 	{
@@ -25,8 +23,7 @@ public class PlayerController : MonoBehaviour {
 		rb.AddForce (movement * speed);
 	}
 
-	void OnTriggerEnter(Collider other)
-	{
+	void OnTriggerEnter(Collider other) {
 		game.AddPoints(other);
 	}
 }
