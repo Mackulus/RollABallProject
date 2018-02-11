@@ -8,7 +8,6 @@ public class GameController : MonoBehaviour {
 	public Text winText;
 	public Text timeText;
 
-	//playerName is never being set
 	public static string playerName = "";
 	public static int playerCount = 0;
     

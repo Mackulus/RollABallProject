@@ -2,14 +2,11 @@
 using UnityEngine.UI;
 
 public class NameUpdate : MonoBehaviour {
-	private static InputField Input;
 
-    private void Start() {
-        
-    }
+	//This code and dynamic string update found here
+	//https://doc.photonengine.com/en-us/pun/current/demos-and-tutorials/pun-basics-tutorial/lobby-ui
 
 	public void PassName (string value) {
-		Debug.Log(value);
 		GameController.playerName = value;
 	}
 }
