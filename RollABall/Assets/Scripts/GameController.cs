@@ -76,9 +76,13 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	public void AddPoints(Collider other) {
+	public void ColliderHandler(Collider other) {
 		if(!timeExpired) {
-			if (other.gameObject.CompareTag ("Pick Up")) {
+			if(other.gameObject.CompareTag("Game Over")) {
+				timeExpired = true;
+				winText.text = "You Lose...";
+			}
+			else if (other.gameObject.CompareTag ("Pick Up")) {
 				//audio component array code found here https://answers.unity.com/questions/52017/2-audio-sources-on-a-game-object-how-use-script-to.html
 				playerCount += 1;
 				GetComponents<AudioSource>()[0].Play();
@@ -89,12 +93,21 @@ public class GameController : MonoBehaviour {
 			}
 			else if (other.gameObject.CompareTag ("Level Win Pick Up")) {
 				playerCount += 10;
-				winText.text = "You Win!";
+				if (level < 4)
+				{
+					winText.text = "You beat Level " + level;
+				}
+				else
+				{
+					winText.text = "You win!";
+				}
 				GetComponents<AudioSource>()[2].Play();
 				win = true;
 				timeExpired = true;
 			}
-			other.gameObject.SetActive (false);
+			if (!other.gameObject.CompareTag("Game Over")){
+				other.gameObject.SetActive (false);
+			}
 			SetCountText ();
 		}
 	}

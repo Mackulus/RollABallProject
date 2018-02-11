@@ -24,6 +24,6 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		game.AddPoints(other);
+		game.ColliderHandler(other);
 	}
 }

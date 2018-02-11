@@ -8,6 +8,10 @@ TagManager:
   - Bonus Pick Up
   - Level Win Pick Up
   - Box Lid
+  - Time
+  - Name
+  - Score
+  - Game Over
   layers:
   - Default
   - TransparentFX
