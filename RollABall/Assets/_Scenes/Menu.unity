@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44140312, g: 0.49022806, b: 0.5702644, a: 1}
+  m_IndirectSpecularColor: {r: 0.44140288, g: 0.490228, b: 0.5702643, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -124,13 +124,14 @@ GameObject:
   - component: {fileID: 90357122}
   - component: {fileID: 90357121}
   - component: {fileID: 90357120}
+  - component: {fileID: 90357123}
   m_Layer: 5
-  m_Name: Options Button
+  m_Name: Debug Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &90357119
 RectTransform:
   m_ObjectHideFlags: 0
@@ -188,7 +189,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 90357121}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 90357123}
+        m_MethodName: SendMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: DeleteAllScores
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &90357121
@@ -224,6 +236,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 90357118}
+--- !u!114 &90357123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 90357118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e549f9e60851444954a4de4fda841e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &135933659
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +620,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Coming Soon!
+  m_Text: Delete Hi-Scores
 --- !u!222 &207444112
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2885,6 +2908,16 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114901448544548712, guid: 1a5a326a83e139a479dbbb09b109b557,
+        type: 2}
+      propertyPath: m_Text
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 114988325200047740, guid: 1a5a326a83e139a479dbbb09b109b557,
+        type: 2}
+      propertyPath: m_Text
+      value: Score
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114139710319705496, guid: 1a5a326a83e139a479dbbb09b109b557, type: 2}
