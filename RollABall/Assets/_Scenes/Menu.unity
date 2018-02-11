@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44140288, g: 0.490228, b: 0.5702643, a: 1}
+  m_IndirectSpecularColor: {r: 0.44140327, g: 0.49022835, b: 0.57026535, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &90357119
 RectTransform:
   m_ObjectHideFlags: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 154973398}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -370,7 +370,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 154973401}
   m_OnClick:
     m_PersistentCalls:
@@ -522,7 +522,20 @@ Prefab:
       propertyPath: m_Name
       value: HighScore (0)
       objectReference: {fileID: 0}
-    - target: {fileID: 114014955038695948, guid: 1a5a326a83e139a479dbbb09b109b557,
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114139710319705496, guid: 1a5a326a83e139a479dbbb09b109b557,
+        type: 2}
+      propertyPath: playerPref
+      value: HighScoreName0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114904065071999136, guid: 1a5a326a83e139a479dbbb09b109b557,
         type: 2}
       propertyPath: playerPref
       value: HighScore0
@@ -602,7 +615,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Options
+  m_Text: Coming Soon!
 --- !u!222 &207444112
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -710,7 +723,20 @@ Prefab:
       propertyPath: m_Name
       value: HighScore (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 114014955038695948, guid: 1a5a326a83e139a479dbbb09b109b557,
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114139710319705496, guid: 1a5a326a83e139a479dbbb09b109b557,
+        type: 2}
+      propertyPath: playerPref
+      value: HighScoreName3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114904065071999136, guid: 1a5a326a83e139a479dbbb09b109b557,
         type: 2}
       propertyPath: playerPref
       value: HighScore3
@@ -1056,7 +1082,20 @@ Prefab:
       propertyPath: m_Name
       value: HighScore (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 114014955038695948, guid: 1a5a326a83e139a479dbbb09b109b557,
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114139710319705496, guid: 1a5a326a83e139a479dbbb09b109b557,
+        type: 2}
+      propertyPath: playerPref
+      value: HighScoreName8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114904065071999136, guid: 1a5a326a83e139a479dbbb09b109b557,
         type: 2}
       propertyPath: playerPref
       value: HighScore8
@@ -1254,7 +1293,20 @@ Prefab:
       propertyPath: m_Name
       value: HighScore (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 114014955038695948, guid: 1a5a326a83e139a479dbbb09b109b557,
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114139710319705496, guid: 1a5a326a83e139a479dbbb09b109b557,
+        type: 2}
+      propertyPath: playerPref
+      value: HighScoreName5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114904065071999136, guid: 1a5a326a83e139a479dbbb09b109b557,
         type: 2}
       propertyPath: playerPref
       value: HighScore5
@@ -1715,6 +1767,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1020618237}
+  - component: {fileID: 1020618238}
   m_Layer: 0
   m_Name: Hi-Score Button
   m_TagString: Untagged
@@ -1737,6 +1790,17 @@ Transform:
   m_Father: {fileID: 804928051}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1020618238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1020618236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3936e92a4b8df0438fe0971f39bf8d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1026540223
 Prefab:
   m_ObjectHideFlags: 0
@@ -1838,7 +1902,20 @@ Prefab:
       propertyPath: m_Name
       value: HighScore (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 114014955038695948, guid: 1a5a326a83e139a479dbbb09b109b557,
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114139710319705496, guid: 1a5a326a83e139a479dbbb09b109b557,
+        type: 2}
+      propertyPath: playerPref
+      value: HighScoreName4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114904065071999136, guid: 1a5a326a83e139a479dbbb09b109b557,
         type: 2}
       propertyPath: playerPref
       value: HighScore4
@@ -1897,8 +1974,8 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
+  m_FirstSelected: {fileID: 1180855534}
+  m_sendNavigationEvents: 0
   m_DragThreshold: 5
 --- !u!4 &1173604355
 Transform:
@@ -2018,7 +2095,20 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114014955038695948, guid: 1a5a326a83e139a479dbbb09b109b557,
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114139710319705496, guid: 1a5a326a83e139a479dbbb09b109b557,
+        type: 2}
+      propertyPath: playerPref
+      value: HighScoreName6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114904065071999136, guid: 1a5a326a83e139a479dbbb09b109b557,
         type: 2}
       propertyPath: playerPref
       value: HighScore6
@@ -2122,7 +2212,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1676563594}
+        m_MethodName: SendMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PassName
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
@@ -2266,7 +2367,20 @@ Prefab:
       propertyPath: m_Name
       value: HighScore (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 114014955038695948, guid: 1a5a326a83e139a479dbbb09b109b557,
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114139710319705496, guid: 1a5a326a83e139a479dbbb09b109b557,
+        type: 2}
+      propertyPath: playerPref
+      value: HighScoreName1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114904065071999136, guid: 1a5a326a83e139a479dbbb09b109b557,
         type: 2}
       propertyPath: playerPref
       value: HighScore1
@@ -2363,7 +2477,6 @@ GameObject:
   - component: {fileID: 1399809675}
   - component: {fileID: 1399809677}
   - component: {fileID: 1399809676}
-  - component: {fileID: 1399809678}
   m_Layer: 5
   m_Name: High Score List
   m_TagString: Untagged
@@ -2434,17 +2547,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1399809674}
---- !u!114 &1399809678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1399809674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3936e92a4b8df0438fe0971f39bf8d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1584875673
 Prefab:
   m_ObjectHideFlags: 0
@@ -2546,7 +2648,20 @@ Prefab:
       propertyPath: m_Name
       value: HighScore (9)
       objectReference: {fileID: 0}
-    - target: {fileID: 114014955038695948, guid: 1a5a326a83e139a479dbbb09b109b557,
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114139710319705496, guid: 1a5a326a83e139a479dbbb09b109b557,
+        type: 2}
+      propertyPath: playerPref
+      value: HighScoreName9
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114904065071999136, guid: 1a5a326a83e139a479dbbb09b109b557,
         type: 2}
       propertyPath: playerPref
       value: HighScore9
@@ -2645,7 +2760,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dec42bd69c5cb24c9b94c9b9b7cd58d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Input: {fileID: 1676563592}
 --- !u!1001 &1716488640
 Prefab:
   m_ObjectHideFlags: 0
@@ -2758,8 +2872,7 @@ Prefab:
       propertyPath: m_Text
       value: Time
       objectReference: {fileID: 0}
-    - target: {fileID: 114014955038695948, guid: 1a5a326a83e139a479dbbb09b109b557,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: playerPref
       value: n/a
       objectReference: {fileID: 0}
@@ -3298,7 +3411,20 @@ Prefab:
       propertyPath: m_Name
       value: HighScore (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 114014955038695948, guid: 1a5a326a83e139a479dbbb09b109b557,
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114139710319705496, guid: 1a5a326a83e139a479dbbb09b109b557,
+        type: 2}
+      propertyPath: playerPref
+      value: HighScoreName2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114904065071999136, guid: 1a5a326a83e139a479dbbb09b109b557,
         type: 2}
       propertyPath: playerPref
       value: HighScore2
@@ -3412,7 +3538,20 @@ Prefab:
       propertyPath: m_Name
       value: HighScore (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 114014955038695948, guid: 1a5a326a83e139a479dbbb09b109b557,
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114139710319705496, guid: 1a5a326a83e139a479dbbb09b109b557,
+        type: 2}
+      propertyPath: playerPref
+      value: HighScoreName7
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playerPref
+      value: HighScore7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114904065071999136, guid: 1a5a326a83e139a479dbbb09b109b557,
         type: 2}
       propertyPath: playerPref
       value: HighScore7
@@ -3492,7 +3631,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Exit
+  m_Text: Press Esc to Exit
 --- !u!222 &2107158488
 CanvasRenderer:
   m_ObjectHideFlags: 0
