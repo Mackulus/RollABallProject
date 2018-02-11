@@ -91,7 +91,7 @@ public class GameController : MonoBehaviour {
 			else if (other.gameObject.CompareTag ("Level Win Pick Up")) {
 				playerCount += 10;
 				winText.text = "You Win!";
-				//GetComponents<AudioSource>()[2].Play();
+				GetComponents<AudioSource>()[2].Play();
 				win = true;
 				timeExpired = true;
 			}

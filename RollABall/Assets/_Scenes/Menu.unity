@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44140327, g: 0.49022835, b: 0.57026535, a: 1}
+  m_IndirectSpecularColor: {r: 0.44140312, g: 0.49022806, b: 0.5702644, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -521,24 +521,6 @@ Prefab:
     - target: {fileID: 1153652975698446, guid: 1a5a326a83e139a479dbbb09b109b557, type: 2}
       propertyPath: m_Name
       value: HighScore (0)
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: playerPref
-      value: HighScore0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114139710319705496, guid: 1a5a326a83e139a479dbbb09b109b557,
-        type: 2}
-      propertyPath: playerPref
-      value: HighScoreName0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: playerPref
-      value: HighScore0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114904065071999136, guid: 1a5a326a83e139a479dbbb09b109b557,
-        type: 2}
-      propertyPath: playerPref
-      value: HighScore0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1a5a326a83e139a479dbbb09b109b557, type: 2}
@@ -1319,6 +1301,53 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224864871196439020, guid: 1a5a326a83e139a479dbbb09b109b557,
     type: 2}
   m_PrefabInternal: {fileID: 585320909}
+--- !u!1001 &678205057
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4866309172955756, guid: 1ac1ebd2b46684c93958caa4dd0cb1a4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 69.638336
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866309172955756, guid: 1ac1ebd2b46684c93958caa4dd0cb1a4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -17.537338
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866309172955756, guid: 1ac1ebd2b46684c93958caa4dd0cb1a4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -13.204437
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866309172955756, guid: 1ac1ebd2b46684c93958caa4dd0cb1a4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866309172955756, guid: 1ac1ebd2b46684c93958caa4dd0cb1a4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866309172955756, guid: 1ac1ebd2b46684c93958caa4dd0cb1a4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866309172955756, guid: 1ac1ebd2b46684c93958caa4dd0cb1a4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866309172955756, guid: 1ac1ebd2b46684c93958caa4dd0cb1a4, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 82098514634907212, guid: 1ac1ebd2b46684c93958caa4dd0cb1a4,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.345
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1ac1ebd2b46684c93958caa4dd0cb1a4, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &743158558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2132,6 +2161,7 @@ GameObject:
   - component: {fileID: 1180855538}
   - component: {fileID: 1180855537}
   - component: {fileID: 1180855536}
+  - component: {fileID: 1180855539}
   m_Layer: 5
   m_Name: InputField
   m_TagString: Untagged
@@ -2213,17 +2243,17 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1676563594}
-        m_MethodName: SendMessage
-        m_Mode: 5
+      - m_Target: {fileID: 1180855539}
+        m_MethodName: PassName
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PassName
+          m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
@@ -2266,6 +2296,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1180855534}
+--- !u!114 &1180855539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1180855534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dec42bd69c5cb24c9b94c9b9b7cd58d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1214406019
 Prefab:
   m_ObjectHideFlags: 0
@@ -2684,7 +2725,6 @@ GameObject:
   - component: {fileID: 1676563591}
   - component: {fileID: 1676563593}
   - component: {fileID: 1676563592}
-  - component: {fileID: 1676563594}
   m_Layer: 5
   m_Name: Input
   m_TagString: Untagged
@@ -2749,17 +2789,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1676563590}
---- !u!114 &1676563594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1676563590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dec42bd69c5cb24c9b94c9b9b7cd58d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1716488640
 Prefab:
   m_ObjectHideFlags: 0
@@ -2857,26 +2886,9 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114901448544548712, guid: 1a5a326a83e139a479dbbb09b109b557,
-        type: 2}
-      propertyPath: m_Text
-      value: Name
-      objectReference: {fileID: 0}
-    - target: {fileID: 114988325200047740, guid: 1a5a326a83e139a479dbbb09b109b557,
-        type: 2}
-      propertyPath: m_Text
-      value: Score
-      objectReference: {fileID: 0}
-    - target: {fileID: 114107617333230268, guid: 1a5a326a83e139a479dbbb09b109b557,
-        type: 2}
-      propertyPath: m_Text
-      value: Time
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: playerPref
-      value: n/a
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114139710319705496, guid: 1a5a326a83e139a479dbbb09b109b557, type: 2}
+    - {fileID: 114904065071999136, guid: 1a5a326a83e139a479dbbb09b109b557, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1a5a326a83e139a479dbbb09b109b557, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1732527164
@@ -2967,6 +2979,17 @@ MonoBehaviour:
           m_StringArgument: LoadScene
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1732527167
