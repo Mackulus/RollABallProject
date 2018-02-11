@@ -1776,6 +1776,10 @@ Prefab:
       propertyPath: focus
       value: 
       objectReference: {fileID: 337698196}
+    - target: {fileID: 4168349048882016, guid: 0911b809991324b45a035362e7d576da, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0911b809991324b45a035362e7d576da, type: 2}
   m_IsPrefabParent: 0
