@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour {
 	public static int playerCount = 0;
     
 	private static int level = 1;
-	private float timeMax = 30.0f;
+	public float timeMax = 30.0f;
 	private float timeLeft;
 	private bool timeExpired;
 	private bool win;

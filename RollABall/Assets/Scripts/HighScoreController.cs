@@ -25,7 +25,6 @@ public class HighScoreController : MonoBehaviour {
 					PlayerPrefs.SetInt("HighScore" + i, newScore);
 					newName = oldName;
 					newScore = oldScore;
-					break;
 				}
 			}
 			else {
