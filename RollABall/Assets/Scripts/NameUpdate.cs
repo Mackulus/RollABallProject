@@ -9,6 +9,7 @@ public class NameUpdate : MonoBehaviour {
     }
 
     public void PassName () {
+		Debug.Log(Input.text);
 		GameController.playerName = Input.text;
 	}
 }

@@ -41,7 +41,7 @@ public class GameController : MonoBehaviour {
 			SceneManager.LoadScene("Menu");
 		}
 
-		if (timeExpired) {
+		if (timeExpired && !startedCoRoutine) {
             level++;
             string scene;
 
@@ -59,6 +59,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	IEnumerator RedirectToNewScene(string scene, int delay = 5) {
+		startedCoRoutine = true;
 		yield return new WaitForSecondsRealtime(delay);
         SceneManager.LoadScene(scene);
     }
