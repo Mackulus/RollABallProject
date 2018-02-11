@@ -9,7 +9,8 @@ public class CubeSpawner : MonoBehaviour {
 
 	public GameObject cubePrefab;
 	public Transform cubeSpawn;
-	public float spawnTime = 5f;
+	public float spawnTime = 4f;
+	public float destroyTime = 4f;
 	public int cubeSpeed;
 
 	// Use this for initialization
@@ -30,6 +31,6 @@ public class CubeSpawner : MonoBehaviour {
 
 		cube.GetComponent<Rigidbody>().velocity = cube.transform.forward * cubeSpeed;
 
-		Destroy(cube, spawnTime);
+		Destroy(cube, destroyTime);
 	}
 }
